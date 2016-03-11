@@ -1,0 +1,6 @@
+.idea
+xolphin-api-python.iml
+test.py
+*.pyc
+dist
+xolphin_api.egg-info
