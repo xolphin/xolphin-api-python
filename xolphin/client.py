@@ -18,13 +18,14 @@ except ImportError:
 
 class Client(object):
     BASE_URL = 'https://api.xolphin.com/v1/'
+    VERSION = '1.1'
 
     def __init__(self, username, password):
         self.username = username
         self.password = password
 
         self._session = requests.session()
-        self._session.headers.update({'Accept': 'application/json'})
+        self._session.headers.update({'Accept': 'application/json', 'User-Agent': 'xolphin-api-python/%s' % Client.VERSION})
         self._session.auth = HTTPBasicAuth(username, password)
         #self._session.proxies.update({
         #    'http': '127.0.0.1:8888',

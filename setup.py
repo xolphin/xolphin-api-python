@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-'''The setup and build script for the xilphin-api library.'''
+'''The setup and build script for the xolphin-api library.'''
 
 import os
 
@@ -13,8 +13,8 @@ def read(*paths):
 setup(
         name='xolphin-api',
         version='1.1.0',
-        author='Roman Ragimoff',
-        author_email='roma.ragimoff@gmail.com',
+        author='Xolphin',
+        author_email='info@xolphin.com',
         license='MIT',
         url='https://github.com/xolphin/xolphin-api-python',
         keywords='xolphin',
