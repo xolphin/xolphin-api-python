@@ -45,7 +45,7 @@ class Request(object):
         }))
 
     def send_subscriber_agreement(self, id, email, language='nl'):
-        return Base(self.client.post('requests/{id}/sa'.format(id=id), {
+        return Base(self.client.post('requests/%d/sa' % id, {
             'email': email,
             'language': language
         }))
