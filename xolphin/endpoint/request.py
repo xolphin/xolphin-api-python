@@ -44,6 +44,12 @@ class Request(object):
             'email': email
         }))
 
+    def send_subscriber_agreement(self, id, email, language='nl'):
+        return Base(self.client.post('requests/%d/sa' % id, {
+            'email': email,
+            'language': language
+        }))
+
     def schedule_validation_call(self, id, date_time):
         return Base(self.client.post('requests/%d/schedule-validation-call' % id, {
             'date': date_time.strftime('%Y-%m-%d'),
