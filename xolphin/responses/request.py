@@ -25,6 +25,8 @@ class Request(Base):
             if 'approverLastName' in data: self.approver_last_name = data['approverLastName']
             if 'approverEmail' in data: self.approver_email = data['approverEmail']
             if 'approverPhone' in data: self.approver_phone = data['approverPhone']
+            if 'requiresAction' in data: self.requiresAction = data['requiresAction']
+            if 'brandValidation' in data: self.brandValidation = data['brandValidation']
             if 'kvk' in data: self.kvk = data['kvk']
 
             if 'validations' in data:

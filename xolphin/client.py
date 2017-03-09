@@ -18,9 +18,16 @@ except ImportError:
 
 class Client(object):
     BASE_URL = 'https://api.xolphin.com/v1/'
-    VERSION = '1.1'
+    BASE_URL_TEST = 'https://test-api.xolphin.com/v1/'
+    VERSION = '1.5.0'
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, test = False):
+        
+        if(test):
+            self.url = self.BASE_URL_TEST
+        else:
+            self.url = self.BASE_URL
+
         self.username = username
         self.password = password
 
@@ -34,14 +41,14 @@ class Client(object):
         #self._session.verify = False
 
     def get(self, method, data={}):
-        response = self._session.get("%s%s" % (Client.BASE_URL, method), params=data)
+        response = self._session.get("%s%s" % (self.url, method), params=data)
         if 200 <= response.status_code < 300:
             return json.loads(response.content.decode('utf-8'))
         else:
             raise Exception(response.content)
 
     def download(self, method, data={}):
-        response = self._session.get("%s%s" % (Client.BASE_URL, method), params=data)
+        response = self._session.get("%s%s" % (self.url, method), params=data)
         if 200 <= response.status_code < 300:
             return response
         else:
@@ -51,10 +58,10 @@ class Client(object):
         payload = {}
         for k in data:
             if k == 'document':
-                payload[k] = ('document.pdf', str(data[k]), 'application/pdf')
+                payload[k] = (data['description'], data[k], 'application/pdf')
             else:
                 payload[k] = (None, str(data[k]))
-        response = self._session.post("%s%s" % (Client.BASE_URL, method), files=payload)
+        response = self._session.post("%s%s" % (self.url, method), files=payload)
         if 200 <= response.status_code < 300:
             return json.loads(response.content.decode('utf-8'))
         else:

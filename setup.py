@@ -12,7 +12,7 @@ def read(*paths):
 
 setup(
         name='xolphin-api',
-        version='1.1.0',
+        version='1.5.0',
         author='Xolphin',
         author_email='info@xolphin.com',
         license='MIT',

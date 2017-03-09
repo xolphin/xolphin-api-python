@@ -47,14 +47,14 @@ for request in requests:
     print(request.id, request.product.id)
 ```
 
-### Getting request by ID
+#### Getting request by ID
 
 ```python
 request = client.request().get(961992637)
 print(request.product.brand)
 ```
 
-### Request certificate
+#### Request certificate
 
 ```python
 ccr = client.request().create(24, 1, 'csr string', 'EMAIL')
@@ -66,6 +66,8 @@ ccr.approver_email = 'email@domain.com'
 ccr.zipcode = '123456'
 ccr.city = 'City'
 ccr.company = 'Company'
+# currently available languages: en, de, fr, nl
+ccr.language = 'en'
 ccr.subject_alternative_names.append('test1.domain.com')
 ccr.subject_alternative_names.append('test2.domain.com')
 ccr.dcv.append({
@@ -77,6 +79,31 @@ ccr.dcv.append({
 request = client.request().send(ccr)
 print(request.id)
 ```
+
+#### Create a note
+
+```python
+result = client.request().send_note(1234, 'My message')
+print(result.message);
+```
+
+#### Get list of notes
+
+```python
+result = client.request().get_notes(1234)
+
+for note in result:
+    print(note.messageBody);
+```
+
+#### Send a "Comodo Subscriber Agreement" email
+
+```python
+//currently available languages: en, de, fr, nl
+result = client.request().send_ComodoSA(124, 'test@example.com')
+print(result.message);
+```
+
 
 ### Certificate
 

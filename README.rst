@@ -81,6 +81,32 @@ Request certificate
     request = client.request().send(ccr)
     print(request.id)
 
+Create a note
+~~~~~~~~~~~~~
+
+.. code:: python
+
+    result = client.request().send_note(1234, 'My message')
+    print(result.message);
+
+Get list of notes
+~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    result = client.request().get_notes(1234)
+    for note in result:
+        print(note.messageBody);
+
+Send a "Comodo Subscriber Agreement" email
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    //currently available languages: en, de, fr, nl
+    result = client.request().send_ComodoSA(124, 'test@example.com')
+    print(result.message);
+
 Certificate
 ~~~~~~~~~~~
 

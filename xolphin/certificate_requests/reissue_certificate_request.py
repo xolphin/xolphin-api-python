@@ -18,6 +18,7 @@ class ReissueCertificateRequest(object):
         self.approver_phone = ''
         self.kvk = ''
         self.reference = ''
+        self.language = ''
 
     def toDict(self):
         result = {
@@ -39,5 +40,6 @@ class ReissueCertificateRequest(object):
         if self.approver_phone != '': result['approverPhone'] = self.approver_phone
         if self.kvk != '': result['kvk'] = self.kvk
         if self.reference != '': result['reference'] = self.reference
+        if self.language != '': result['language'] = self.language
         
         return result

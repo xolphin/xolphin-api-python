@@ -2,6 +2,7 @@ from xolphin.certificate_requests.create_certificate_request import CreateCertif
 from xolphin.responses.base import Base
 from xolphin.responses.requests import Requests
 from xolphin.responses.request import Request as Req
+from xolphin.responses.notes import Notes
 
 
 class Request(object):
@@ -44,7 +45,7 @@ class Request(object):
             'email': email
         }))
 
-    def send_subscriber_agreement(self, id, email, language='nl'):
+    def send_subscriber_agreement(self, id, email, language = ""):
         return Base(self.client.post('requests/%d/sa' % id, {
             'email': email,
             'language': language
@@ -54,4 +55,24 @@ class Request(object):
         return Base(self.client.post('requests/%d/schedule-validation-call' % id, {
             'date': date_time.strftime('%Y-%m-%d'),
             'time': date_time.strftime('%H:%M')
+        }))
+
+    def send_note(self, id, message):
+        return Base(self.client.post('requests/%d/notes' % id, {
+            'message': message
+        }))
+
+    def get_notes(self, id):
+        notes = []
+
+        result = Notes(self.client.get('requests/%d/notes' % id))
+        if not result.is_error():
+            notes = result.notes
+        
+        return notes
+
+    def send_ComodoSA(self, id, to, language = ""):
+        return Base(self.client.post('requests/%d/sa' % id, {
+            'sa_email': to,
+            'language': language,
         }))
