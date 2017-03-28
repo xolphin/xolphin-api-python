@@ -1,7 +1,9 @@
 from xolphin.certificate_requests.create_certificate_request import CreateCertificateRequest
+from xolphin.certificate_requests.create_ee_request import CreateEERequest
 from xolphin.responses.base import Base
 from xolphin.responses.requests import Requests
 from xolphin.responses.request import Request as Req
+from xolphin.responses.request_ee import RequestEE as ReqEE
 from xolphin.responses.notes import Notes
 
 
@@ -25,9 +27,15 @@ class Request(object):
 
     def create(self, product, years, csr, dcv_type):
         return CreateCertificateRequest(product, years, csr, dcv_type)
+    
+    def create_ee(self):
+        return CreateEERequest()
 
     def send(self, request):
         return Req(self.client.post('requests', request.toDict()))
+
+    def send_ee(self, request):
+        return ReqEE(self.client.post('requests/ee', request.toDict()))
 
     def get(self, id):
         return Req(self.client.get('requests/%d' % id))

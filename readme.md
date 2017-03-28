@@ -96,6 +96,20 @@ for note in result:
     print(note.messageBody);
 ```
 
+#### Request an "Encryption Everywhere" certificate
+```python
+ccr = client.request().create_ee()
+ccr.csr = "<csr_string>"
+ccr.approver_first_name = 'FirstName'
+ccr.approver_last_name = 'LastName'
+ccr.approver_phone = '+12345678901'
+ccr.approver_email = 'email@domain.com'
+ccr.subject_alternative_names.append('test1.domain.com')
+ccr.subject_alternative_names.append('test2.domain.com')
+ccr.dcvType = 'DNS'
+request = client.request().send_ee(ccr)
+```
+
 #### Send a "Comodo Subscriber Agreement" email
 
 ```python

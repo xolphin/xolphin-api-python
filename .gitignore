@@ -3,3 +3,4 @@ dist/
 xolphin_api.egg-info/
 .idea/
 *.py~
+*.pyc
