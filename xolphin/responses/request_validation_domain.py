@@ -1,10 +1,10 @@
 class RequestValidationDomain(object):
     def __init__(self, data):
-        if 'domain' in data: self.domain = data['domain']
-        if 'dcvType' in data: self.dcv_type = data['dcvType']
-        if 'dcvEmail' in data: self.dcv_email = data['dcvEmail']
-        if 'status' in data: self.status = data['status']
-        if 'statusDetail' in data: self.status_detail = data['statusDetail']
-        if 'statusMessage' in data: self.status_message = data['statusMessage']
-        if 'md5' in data: self.md5 = data['md5']
-        if 'sha1' in data: self.sha1 = data['sha1']
+        self.domain = data.get('domain')
+        self.dcv_type = data.get('dcvType')
+        self.dcv_email = data.get('dcvEmail')
+        self.status = data.get('status')
+        self.status_detail = data.get('statusDetail')
+        self.status_message = data.get('statusMessage')
+        self.md5 = data.get('md5')
+        self.sha1 = data.get('sha1')
