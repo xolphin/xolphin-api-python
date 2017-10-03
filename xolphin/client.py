@@ -19,7 +19,7 @@ except ImportError:
 class Client(object):
     BASE_URL = 'https://api.xolphin.com/v1/'
     BASE_URL_TEST = 'https://test-api.xolphin.com/v1/'
-    VERSION = '1.5.0'
+    VERSION = '1.6.0'
 
     def __init__(self, username, password, test = False):
         

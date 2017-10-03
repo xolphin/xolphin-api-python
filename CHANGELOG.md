@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2017-07-07
+### Added
+- Compatability with Xolphin REST Api v1.6.0
+- Certificate Requests: Support for the new CNAME and FILE validation strings for Comodo DCV
+
 ## [1.5.0] - 2017-03-09
 ### Added
 - Compatability with Xolphin REST Api v1.5.0

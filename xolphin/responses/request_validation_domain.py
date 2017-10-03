@@ -8,3 +8,8 @@ class RequestValidationDomain(object):
         if 'statusMessage' in data: self.status_message = data['statusMessage']
         if 'md5' in data: self.md5 = data['md5']
         if 'sha1' in data: self.sha1 = data['sha1']
+
+        if 'dnsRecord' in data: self.dnsRecord = data['dnsRecord']
+        if 'dnsCnameValue' in data: self.dnsCnameValue = data['dnsCnameValue']
+        if 'fileLocation' in data: self.fileLocation = data['fileLocation']
+        if 'fileContents' in data: self.fileContents = data['fileContents']

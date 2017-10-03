@@ -15,7 +15,7 @@ class Certificate(object):
         if not result.is_error():
             certificates = result.certificates
             while result.page < result.pages:
-                result = Requests(self.client.get('certificates', {'page': result.page + 1}))
+                result = Certificates(self.client.get('certificates', {'page': result.page + 1}))
                 if result.is_error():
                     break
                 certificates = certificates + result.certificates
