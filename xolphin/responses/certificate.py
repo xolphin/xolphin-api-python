@@ -12,7 +12,7 @@ class Certificate(Base):
             if 'subjectAlternativeNames' in data: self.subject_alternative_names = data['subjectAlternativeNames']
             if 'dateIssued' in data: self.date_issued = datetime.datetime.strptime(data['dateIssued'].split('T')[0], '%Y-%m-%d')
             if 'dateExpired' in data: self.date_expired = datetime.datetime.strptime(data['dateExpired'].split('T')[0], '%Y-%m-%d')
-            if 'dateSubscriptionExpired' in data: self.date_subscription_expired = datetime.datetime.strptime(data['dateSubscriptionExpired'].split('T')[0], '%Y-%m-%d') if data['dateSubscriptionExpired'] not is None else None
+            if 'dateSubscriptionExpired' in data: self.date_subscription_expired = datetime.datetime.strptime(data['dateSubscriptionExpired'].split('T')[0], '%Y-%m-%d') if data['dateSubscriptionExpired'] is not None else None
             if 'company' in data: self.company = data['company']
             if 'customerId' in data: self.customer_id = data['customerId']
 
