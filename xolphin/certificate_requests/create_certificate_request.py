@@ -29,7 +29,7 @@ class CreateCertificateRequest(object):
             'years': self.years,
             'csr': self.csr,
             'dcvType': self.dcv_type,
-            'disable_free_san': self.disable_free_san,
+            'disableFreeSan': self.disable_free_san,
         }
         
         if len(self.subject_alternative_names) > 0: result['subjectAlternativeNames'] = ','.join(self.subject_alternative_names)
