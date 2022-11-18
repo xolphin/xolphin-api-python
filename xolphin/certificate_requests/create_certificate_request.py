@@ -29,7 +29,7 @@ class CreateCertificateRequest(object):
             'years': self.years,
             'csr': self.csr,
             'dcvType': self.dcv_type,
-            'disableFreeSan': self.disable_free_san,
+            'disableFreeSan': int(self.disable_free_san),  # int case is a workaround, booleans don't work here.
         }
         
         if len(self.subject_alternative_names) > 0: result['subjectAlternativeNames'] = ','.join(self.subject_alternative_names)
