@@ -20,11 +20,17 @@ class Request(Base):
             if 'city' in data: self.city = data['city']
             if 'province' in data: self.province = data['province']
             if 'country' in data: self.country = data['country']
+            if 'certenroll_email' in data: self.certenroll_email = data['certenrollEmail']
             if 'reference' in data: self.reference = data['reference']
             if 'approverFirstName' in data: self.approver_first_name = data['approverFirstName']
             if 'approverLastName' in data: self.approver_last_name = data['approverLastName']
             if 'approverEmail' in data: self.approver_email = data['approverEmail']
             if 'approverPhone' in data: self.approver_phone = data['approverPhone']
+            if 'approverRepresentativeFirstName' in data: self.approver_representative_first_name = data['approverRepresentativeFirstName']
+            if 'approverRepresentativeLastName' in data: self.approver_representative_last_name = data['approverRepresentativeLastName']
+            if 'approverRepresentativeEmail' in data: self.approver_representative_email = data['approverRepresentativeEmail']
+            if 'approverRepresentativePhone' in data: self.approver_representative_phone = data['approverRepresentativePhone']
+            if 'approverRepresentativePosition' in data: self.approver_representative_position = data['approverRepresentativePosition']
             if 'requiresAction' in data: self.requiresAction = data['requiresAction']
             if 'brandValidation' in data: self.brandValidation = data['brandValidation']
             if 'kvk' in data: self.kvk = data['kvk']
@@ -37,3 +43,4 @@ class Request(Base):
 
             if ('_embedded' in data) and ('product' in data['_embedded']):
                 self.product = Product(data['_embedded']['product'])
+
