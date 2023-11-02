@@ -107,6 +107,18 @@ Send a "Comodo Subscriber Agreement" email
     result = client.request().send_ComodoSA(124, 'test@example.com')
     print(result.message);
 
+Request Callback (OV and EV certificates)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    vc = client.request().configure_validation_call(order_id)
+    vc.date = "2024-01-26"
+    vc.time = "11:00"
+    vc.timezone = "Europe Amsterdam"
+    vc.phoneNumber = "132456789"
+    request = client.request().send_validation_call(vc);
+
 Certificate
 ~~~~~~~~~~~
 
