@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2023-11-23
+### Added
+- approverRepresentative fields
+- added extra schedule_validation_call fields
+- added disable_free_san
+- added request cancel
+
 ## [1.6.0] - 2017-07-07
 ### Added
 - Compatability with Xolphin REST Api v1.6.0
