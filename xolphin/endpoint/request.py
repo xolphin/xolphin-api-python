@@ -71,6 +71,11 @@ class Request(object):
         return Base(self.client.post('requests/%d/notes' % id, {
             'message': message
         }))
+    
+    def cancel(self, id, reason):
+        return Base(self.client.post('requests/%d/cancel' % id, {
+            'reason': reason
+        }))    
 
     def get_notes(self, id):
         notes = []

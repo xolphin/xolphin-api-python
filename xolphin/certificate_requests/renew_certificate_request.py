@@ -29,6 +29,8 @@ class RenewCertificateRequest(object):
         self.kvk = ''
         self.reference = ''
         self.language = ''   
+        self.language = ''
+        self.disable_free_san = False
 
     def toDict(self):
         result = {
@@ -36,6 +38,7 @@ class RenewCertificateRequest(object):
             'years': self.years,
             'csr': self.csr,
             'dcvType': self.dcv_type,
+            'disableFreeSan': int(self.disable_free_san),  # int cast is a workaround, booleans don't work here.
         }
         
         if len(self.subject_alternative_names) > 0: result['subjectAlternativeNames'] = ','.join(self.subject_alternative_names)
