@@ -1,10 +1,12 @@
 from xolphin.certificate_requests.create_certificate_request import CreateCertificateRequest
 from xolphin.certificate_requests.create_ee_request import CreateEERequest
+from xolphin.certificate_requests.configure_validation_call import ConfigureValidationCall
 from xolphin.responses.base import Base
 from xolphin.responses.requests import Requests
 from xolphin.responses.request import Request as Req
 from xolphin.responses.request_ee import RequestEE as ReqEE
 from xolphin.responses.notes import Notes
+from xolphin.responses.request_validation import RequestValidation
 
 
 class Request(object):
@@ -59,11 +61,11 @@ class Request(object):
             'language': language
         }))
 
-    def schedule_validation_call(self, id, date_time):
-        return Base(self.client.post('requests/%d/schedule-validation-call' % id, {
-            'date': date_time.strftime('%Y-%m-%d'),
-            'time': date_time.strftime('%H:%M')
-        }))
+    def configure_validation_call(self,request_id):
+        return ConfigureValidationCall(request_id)
+
+    def send_validation_call(self,validation_call):
+        return RequestValidation(self.client.post('requests/%d/schedule-validation-call' % validation_call.request_id,validation_call.toDict()))
 
     def send_note(self, id, message):
         return Base(self.client.post('requests/%d/notes' % id, {

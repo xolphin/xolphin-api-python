@@ -59,10 +59,12 @@ print(request.product.brand)
 ```python
 ccr = client.request().create(24, 1, 'csr string', 'EMAIL')
 ccr.address = 'Address'
-ccr.approver_first_name = 'FirstName'
-ccr.approver_last_name = 'LastName'
-ccr.approver_phone = '+12345678901'
-ccr.approver_email = 'email@domain.com'
+ccr.approver_representative_first_name = 'FirstName'
+ccr.approver_representative_last_name = 'LastName'
+ccr.approver_representative_phone = '+12345678901'
+ccr.approver_representative_email = 'approver_email@domain.com'
+ccr.approver_representative_position = 'Pos'
+ccr.approver_email = 'admin@domain.com'
 ccr.zipcode = '123456'
 ccr.city = 'City'
 ccr.company = 'Company'
@@ -100,10 +102,12 @@ for note in result:
 ```python
 ccr = client.request().create_ee()
 ccr.csr = "<csr_string>"
-ccr.approver_first_name = 'FirstName'
-ccr.approver_last_name = 'LastName'
-ccr.approver_phone = '+12345678901'
-ccr.approver_email = 'email@domain.com'
+ccr.approver_representative_first_name = 'FirstName'
+ccr.approver_representative_last_name = 'LastName'
+ccr.approver_representative_phone = '+12345678901'
+ccr.approver_representative_email = 'approver_email@domain.com'
+ccr.approver_representative_position = 'Pos'
+ccr.approver_email = 'admin@domain.com'
 ccr.subject_alternative_names.append('test1.domain.com')
 ccr.subject_alternative_names.append('test2.domain.com')
 ccr.dcvType = 'DNS'
@@ -118,7 +122,16 @@ result = client.request().send_ComodoSA(124, 'test@example.com')
 print(result.message);
 ```
 
+#### Request Callback (OV and EV certificates)
 
+```python
+vc = client.request().configure_validation_call(order_id)
+vc.date = "2024-01-26"
+vc.time = "11:00"
+vc.timezone = "Europe Amsterdam"
+vc.phoneNumber = "132456789"
+request = client.request().send_validation_call(vc)
+```
 ### Certificate
 
 #### Certificates list and expirations

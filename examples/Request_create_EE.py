@@ -20,10 +20,11 @@ zi21dz/AsjG9Jc6GJqZs0ImEwCQlBhJYnXPj3FB8U/mzSWSfq502fdtmQrvIgHmI
 RLuxVO9QX0YLQ0ew1x2z+eFfBsfSI1+DkF4+5TrfJP6jQyHBR+VDdGYBO2d8rBw7
 ITIJC9tt2F4GjaPAI1xY9eoq/QfZxzNoNufMuw==
 -----END CERTIFICATE REQUEST-----"""
-ccr.approver_first_name = 'FirstName'
-ccr.approver_last_name = 'LastName'
-ccr.approver_phone = '+12345678901'
-ccr.approver_email = 'email@domain.com'
+ccr.approver_representative_first_name = 'FirstName'
+ccr.approver_representative_last_name = 'LastName'
+ccr.approver_representative_phone = '+12345678901'
+ccr.approver_representative_email = 'email@domain.com'
+ccr.approver_representative_position = 'CTO'
 ccr.subject_alternative_names.append('test1.domain.com')
 ccr.subject_alternative_names.append('test2.domain.com')
 ccr.dcvType = 'DNS'
