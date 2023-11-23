@@ -28,7 +28,6 @@ class RenewCertificateRequest(object):
         self.approver_representative_position = ''
         self.kvk = ''
         self.reference = ''
-        self.language = ''   
         self.language = ''
         self.disable_free_san = False
 
